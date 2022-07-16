@@ -1,6 +1,7 @@
 /* PULL IN OUR DEPENDENCIES */
 var express = require('express'),
 	router = express.Router(),
+	mainhome = require('../controllers/home');
 	/* GET CONTROLLER FILES
 	NOTE: HERE I CREATED A CONTROLLER FOR EACH PAGE.  THIS IS ONE WAY OF DOING IT. YOU COULD ALSO SET CONTROLLERS FOR THE PAGE AREAS LIKE USER CONTROLLER AND ADMIN CONTROLLER. */
 	home = require('../controllers/user/home');
@@ -9,6 +10,9 @@ var express = require('express'),
 	admin = require('../controllers/admin/home');
 
 module.exports = function(app){
+	/* HOME ROUTES */
+	router.get('/', mainhome.index);
+
 	/* USER ROUTES */
 	router.get('/user/', home.index);
 	router.get('/user/diff', home.diff);
